@@ -1,8 +1,5 @@
 # coding=utf-8
 
-import time
-import tempfile
-import math
 import random
 import tensorflow as tf
 import numpy as np

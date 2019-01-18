@@ -1,8 +1,5 @@
 # coding=utf-8
 
-import time
-import tempfile
-import math
 import random
 import tensorflow as tf
 import numpy as np
@@ -279,7 +276,7 @@ def main(unused_argv):
                 # _, mean_loss_val, step, summary_mean_loss_val = sess.run(
                 #     [optimizer, mean_loss, global_step, summary_mean_loss], feed_dict=train_feed_dict)
 
-                if (not is_chief and step>100) or is_chief:
+                if (not is_chief and step > 100) or is_chief:
                     _, mean_loss_val, step, summary_mean_loss_val = sess.run(
                         [optimizer, mean_loss, global_step, summary_mean_loss], feed_dict=train_feed_dict)
                 else:
@@ -311,7 +308,8 @@ def main(unused_argv):
                 # if step >= FLAGS.train_steps:
                 #     print("training is over,save model into:{}".format('/d/tflog/log_write_by_hxl'))
                 #     break
-            print("training is over,save model into:{}".format('/d/tflog/log_write_by_hxl'))
+            print("training is over,save model into:{}".format(
+                '/d/tflog/log_write_by_hxl'))
             # sess.close()
 
 

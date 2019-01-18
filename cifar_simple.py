@@ -191,8 +191,8 @@ with tf.device('/cpu:0'):
                 dropout_placeholdr: 0.25
             }
 
-            _, mean_loss_val, summary_mean_loss_val,summary_logits_val = sess.run(
-                [optimizer, mean_loss, summary_mean_loss,summary_logits], feed_dict=train_feed_dict)
+            _, mean_loss_val, summary_mean_loss_val, summary_logits_val = sess.run(
+                [optimizer, mean_loss, summary_mean_loss, summary_logits], feed_dict=train_feed_dict)
 
             if step % 10 == 0:
                 test_feed_dict = {
