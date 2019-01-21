@@ -268,6 +268,10 @@ def main(unused_argv):
                     dropout_placeholdr: 0.25
                 }
 
+                # if step % 10 == 0:
+                #     print(sess.run("conv2d_2/kernel:0")[0][0][0])
+                # print([v.name for v in tf.trainable_variables()])
+
                 _, mean_loss_val, step, summary_mean_loss_val = sess.run(
                     [optimizer, mean_loss, global_step, summary_mean_loss], feed_dict=train_feed_dict)
 

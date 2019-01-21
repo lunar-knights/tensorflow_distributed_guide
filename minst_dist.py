@@ -43,7 +43,7 @@ def main(_):
         with tf.device(tf.train.replica_device_setter(worker_device="/job:worker/task:%d" % (FLAGS.task_index),
                                                       cluster=cluster)):
             # load mnist dataset 28*28=784
-            mnist = read_data_sets("./dataset", one_hot=True)
+            mnist = read_data_sets("./minst-data", one_hot=True)
             # the model
             images = tf.placeholder(tf.float32, [None, 784])
             labels = tf.placeholder(tf.int32, [None, 10])
@@ -75,7 +75,7 @@ def main(_):
             with tf.train.MonitoredTrainingSession(master=server.target,
                                                    is_chief=(
                                                        FLAGS.task_index == 0),
-                                                   checkpoint_dir="./checkpoint_dir",
+                                                   # checkpoint_dir="./checkpoint_dir",
                                                    hooks=hooks) as mon_sess:
                 while not mon_sess.should_stop():
                     # mon_sess.run handles AbortedError in case of preempted PS.
